@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Countdown from '../countdown';
+import './styles.css'
 
 const QuestionForm = ({qa}) => {
   const [selectOption, setSelectOption] = useState()
   const [winner, setWinner] = useState(false)
   const [incorrect, setIncorrect] = useState(false)
-  const [timeUp, setTimeUp] = useState(false)
-  console.log(timeUp)
   const correct = qa['correctAnswer']
+  const [reset, setReset] = useState(false)
 
   const OnSubmit = (e) => {
     e.preventDefault()
@@ -24,7 +24,7 @@ const QuestionForm = ({qa}) => {
     setIncorrect(false)
   }
   return (
-    <form onSubmit={OnSubmit}>
+    <form onSubmit={OnSubmit} className={selectOption && (winner || incorrect) ? `form-container form--submit` : 'form-container'}>
       <h1>{qa['question']}</h1>
       <input 
         type='radio' 
@@ -51,13 +51,7 @@ const QuestionForm = ({qa}) => {
       />
       <label htmlFor='3'>{qa['3']}</label>
     <button>send</button>
-    {winner && (
-      <h1>correct!</h1>
-    )}
-    {incorrect && (
-      <h1>incorrect!</h1>
-    )}
-    <Countdown setTimeUp={setTimeUp} seconds={30}/>
+    <Countdown reset={reset} />
   </form>
   );
 };

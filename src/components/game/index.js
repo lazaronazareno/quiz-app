@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import QuestionForm from '../questionForm';
 import { questions } from '../questions';
+import './styles.css'
 
 const Game = () => {
   const [questionsList, setQuestionsList] = useState(questions)
@@ -14,7 +15,7 @@ const Game = () => {
   },[])
 
   return (
-    <div>
+    <div className='game-container'>
       {questionsList.map((q, index) => (
         <QuestionForm qa={q} key={index} />
       ))}

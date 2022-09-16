@@ -1,30 +1,15 @@
-import React, { useEffect, useState } from 'react';
-
-const Countdown = ({setTimeUp, seconds}) => {
-  const [ timer, setTimer] = useState(seconds)
-  const [timeLeft, setTimeLeft] = useState(false)
-
-  useEffect(() => {
-    const time = setTimeout(function() {
-        setTimer(timer - 1);
-    }, 1000)
-    if(timer === 0){
-      setTimeLeft(true)
-      setTimeUp(true)
-    }
-
-    return () => { 
-       clearTimeout(time)
-    }
+import React from 'react';
+import CountdownTimer from './countdownTimer';
+import './styles.css';
 
 
-   }, [timer]);
+export default function Countdown({reset}) {
+  const THREE_DAYS_IN_MS = 30 * 1000;
+  const NOW_IN_MS = new Date().getTime();
+
+  const dateTimeAfterThreeDays = NOW_IN_MS + THREE_DAYS_IN_MS;
 
   return (
-    <>
-    {timeLeft ? <span>Time Up!</span> : <span>{timer} seconds left </span>}
-    </>
+    <CountdownTimer targetDate={dateTimeAfterThreeDays} />
   );
 };
-
-export default Countdown;
