@@ -2,9 +2,14 @@ import React, { useEffect, useState } from 'react';
 import QuestionForm from '../questionForm';
 import { questions } from '../questions';
 import './styles.css'
+import CountdownA from '../countdown/countdown';
 
 const Game = () => {
   const [questionsList, setQuestionsList] = useState(questions)
+  const [countWinner, setCountWinner] = useState(0)
+  const [timeUp, setTimeUp] = useState(false)
+  const [seconds, setSeconds] = useState(5)
+  const[countIndex, setCountIndex] = useState(0)
 
   useEffect(() => {
     let shuffled = questionsList.map(value => ({ value, sort: Math.random() }))
@@ -17,7 +22,22 @@ const Game = () => {
   return (
     <div className='game-container'>
       {questionsList.map((q, index) => (
-        <QuestionForm qa={q} key={index} />
+        <div key={index}>
+          <QuestionForm
+            qa={q}
+            count={countWinner}
+            winnerCount={setCountWinner}
+            secondsLeft={seconds}
+            setSecondsLeft={setSeconds}
+            timeUp={timeUp}
+            setTimeUp={setTimeUp}
+            index={index}
+            countIndex={countIndex}
+            setCountIndex={setCountIndex}
+            />
+            {countIndex < 10 && <CountdownA setTimeUp={setTimeUp} seconds={seconds} setSeconds={setSeconds}/> }
+            {countIndex >= 10 && <h1>quiz over</h1> }
+        </div>
       ))}
     </div>
   );

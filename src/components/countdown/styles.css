@@ -2,6 +2,9 @@
   text-align: center;
   padding: 2rem;
   margin: 0.5rem;
+  position: absolute;
+  top: 50%;
+  right: 50%;
 }
 
 .expired-notice > span {
@@ -16,6 +19,15 @@
 
 .show-counter {
   padding: 0.5rem;
+  position: absolute;
+  top: 5vh;
+  left: 5vh;
+  font-size: 6vh;
+  border-radius: 50%;
+  border: 1px solid red;
+  background-color: grey;
+  width: 8vh;
+  height: 7vh;
 }
 
 .show-counter .countdown-link {
