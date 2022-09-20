@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import './styles.css';
 
 const Home = () => {
 
   return (
-    <div >
-      <div><h1>Play</h1></div>
-      <div><h1>Rankings</h1></div>
+    <div className='home-container'>
+      <Link to='/questions'>Play</Link> 
+      <Link to='/rankings'>Rankings</Link>
     </div>
   );
 };

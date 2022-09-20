@@ -3,6 +3,7 @@ import QuestionForm from '../questionForm';
 import { questions } from '../questions';
 import './styles.css'
 import CountdownA from '../countdown/countdown';
+import ScoreForm from '../score-form';
 
 const Game = () => {
   const [questionsList, setQuestionsList] = useState(questions)
@@ -36,9 +37,11 @@ const Game = () => {
             setCountIndex={setCountIndex}
             />
             {countIndex < 10 && <CountdownA setTimeUp={setTimeUp} seconds={seconds} setSeconds={setSeconds}/> }
-            {countIndex >= 10 && <h1>quiz over</h1> }
         </div>
       ))}
+      <div>
+        {countIndex >= 10 && <ScoreForm countWinner={countWinner} /> }
+      </div>
     </div>
   );
 };

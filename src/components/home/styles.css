@@ -1,0 +1,39 @@
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.home-container a {
+  font-size: 5vh;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  border: 2px violet solid;
+  padding: 3vh;
+  margin: 2vh;
+  width: 20vw;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-container a:hover {
+  animation: breath 1s both;
+  margin: 0;
+  font-size: 6vh;
+  color: violet;
+}
+
+@-webkit-keyframes breath {
+    0% {width: 20vw; height: 7vh; margin: 0;}
+    100% {width: 25vw; height: 7vh; margin: 0;}
+  }
+  @keyframes breath {
+    0% {width: 20vw; height: 7vh; margin: 0;}
+    100% {width: 25vw; height: 7vh; margin: 0;}
+  } 
