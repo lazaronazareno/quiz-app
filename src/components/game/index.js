@@ -21,32 +21,38 @@ const Game = () => {
     let newList = shuffled.slice(0,10)
     setQuestionsList(newList)
   },[])
-  console.log(countIndex)
 
   return (
     <main className='game-container'>
-      {questionsList.map((q, index) => (
-        <div key={index}>
-          <QuestionForm
-            qa={q}
-            count={countWinner}
-            winnerCount={setCountWinner}
-            secondsLeft={seconds}
-            setSecondsLeft={setSeconds}
-            timeUp={timeUp}
-            setTimeUp={setTimeUp}
-            index={index}
-            countIndex={countIndex}
-            setCountIndex={setCountIndex}
-            />
-            {countIndex <= 10 && <Countdown setTimeUp={setTimeUp} seconds={seconds} setSeconds={setSeconds}/> }
-            <Link className='game-back__button' to='/'>
-              <img src={arrow} alt="Arrow icons created by Kirill Kazachek - Flaticon" />
-            </Link>
-        </div>
-      ))}
+      {countIndex <= 10 && 
+        <>
+          {questionsList.map((q, index) => (
+            <div key={index}>
+              <QuestionForm
+                qa={q}
+                count={countWinner}
+                winnerCount={setCountWinner}
+                secondsLeft={seconds}
+                setSecondsLeft={setSeconds}
+                timeUp={timeUp}
+                setTimeUp={setTimeUp}
+                index={index}
+                countIndex={countIndex}
+                setCountIndex={setCountIndex}
+                />
+                <Countdown setTimeUp={setTimeUp} seconds={seconds} setSeconds={setSeconds}/>
+                <Link className='game-back__button' to='/'>
+                  <img src={arrow} alt="Arrow icons created by Kirill Kazachek - Flaticon" />
+                </Link>
+            </div>
+          ))}
+        </>
+       }
       <div>
         {countIndex > 10 && <ScoreForm countWinner={countWinner} /> }
+        <Link className='game-back__button' to='/'>
+          <img src={arrow} alt="Arrow icons created by Kirill Kazachek - Flaticon" />
+        </Link>
       </div>
     </main>
   );

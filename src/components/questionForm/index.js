@@ -12,48 +12,41 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
     e.preventDefault()
     if (selectOption === e.target[correct -1].value) {
       setWinner(true)
-      console.log('correct')
       winnerCount(count + secondsLeft)
       setSecondsLeft(30)
-      setCountIndex(countIndex + 1)
     } else {
       setIncorrect(true)
-      console.log('incorrect')
       winnerCount(count)
       setSecondsLeft(30)
-      setCountIndex(countIndex + 1)
     }
+    setCountIndex(countIndex + 1)
   }
 
   const onChange = (e) => {
     setSelectOption(e.target.value)
   }
 
-  useEffect((e) => {
+  useEffect(() => {
     setSelectOption(null)
-    console.log('countIndex', countIndex)
+    console.log(countIndex)
+    console.log('winner', winner,'incorrect', incorrect, index )
     if(timeUp && index === 0) {
       setIncorrect(true)
-      console.log('incorrect')
-      console.log('index',index)
+      setWinner(false)
       setSecondsLeft(30)
       setCountIndex(countIndex + 1)
-      console.log(countIndex)
     }
     if(timeUp && countIndex === index) {
       setIncorrect(true)
-      console.log('incorrect')
-      console.log('index',index)
+      setWinner(false)
       setSecondsLeft(30)
       setCountIndex(countIndex + 1)
-      console.log(countIndex)
     }
     return () => { 
       setTimeUp(false);
-      setCountIndex(countIndex + 1)
       setSelectOption(null)
    }
-   }, [timeUp]);
+   }, [timeUp, countIndex, incorrect, winner]);
 
    useEffect(()=>{
     setTimeout(function() {
@@ -69,7 +62,7 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
       {(winner || incorrect) &&
         showResult ? <>{ incorrect ? <div className='result-container incorrect'><h1>incorrecto. Respuesta correcta : {qa[correct]}</h1></div> : <div className='result-container correct'><h1>correct</h1></div>}</> : <></>
       }
-      {((!winner && !incorrect)) &&
+      {!winner && !incorrect &&
         <form onSubmit={OnSubmit} className={(winner || incorrect) ? `form-container form--submit` : 'form-container'}>
           <h1>{qa['question']}</h1>
 

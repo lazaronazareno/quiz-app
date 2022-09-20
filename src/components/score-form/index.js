@@ -12,7 +12,7 @@ const ScoreForm = ({countWinner}) => {
   const OnSubmit = (e) => {
     e.preventDefault();
     const newDate = new Date();
-    const currentDate = newDate.getFullYear()+'/'+(newDate.getMonth()+1)+'/'+newDate.getDate() + '-' + newDate.getHours()+':'+newDate.getMinutes();
+    const currentDate = newDate.getFullYear()+'/'+(newDate.getMonth()+1)+'/'+newDate.getDate() + '-' + newDate.getHours()+':'+newDate.getMinutes()+'-p-'+countWinner;
     if(name !== ''){
       const obj = {date:currentDate, name:name, score: countWinner};
       setScore(obj)
@@ -31,7 +31,7 @@ const ScoreForm = ({countWinner}) => {
     const scores = JSON.parse(localStorage.getItem('scoreList'))
     if(!scores) {
       localStorage.setItem('scoreList', JSON.stringify(scoreList)) 
-    } else if(scores !== [] || scoreList.length > 0) {
+    } else if(scoreList && scoreList.length > 0) {
       console.log('useEffect', scoreList)
       localStorage.setItem('scoreList', JSON.stringify(scoreList)) 
     }

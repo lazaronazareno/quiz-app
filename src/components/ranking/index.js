@@ -5,7 +5,6 @@ import './styles.css'
 
 const Ranking = () => {
   const [data, setData] = useState();
-  console.log(data)
   if(data){
     data.sort((a,b) => b.score - a.score)
   }
