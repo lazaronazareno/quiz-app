@@ -31,7 +31,7 @@ const ScoreForm = ({countWinner}) => {
     const scores = JSON.parse(localStorage.getItem('scoreList'))
     if(!scores) {
       localStorage.setItem('scoreList', JSON.stringify(scoreList)) 
-    } else if(scoreList.length > 0) {
+    } else if(scores !== [] || scoreList.length > 0) {
       console.log('useEffect', scoreList)
       localStorage.setItem('scoreList', JSON.stringify(scoreList)) 
     }
@@ -39,7 +39,7 @@ const ScoreForm = ({countWinner}) => {
   }, [score]);
 
   return (
-    <div className='score-form__container'>
+    <main className='score-form__container'>
       <h1 className='score-form__title'>Juego Terminado</h1>
       <h1 className='score-form__subtitle'>Puntuación : <strong>{countWinner}</strong></h1>
       {!error && !success && ( 
@@ -63,7 +63,7 @@ const ScoreForm = ({countWinner}) => {
           <Link to='/ranking'>Ver Puntuaciones</Link>
         </div>
       )}
-    </div>
+    </main>
   );
 };
 

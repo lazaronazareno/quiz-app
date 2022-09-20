@@ -6,7 +6,7 @@ import Ranking from './components/ranking';
 
 function App() {
   return (
-    <div className="App">
+    <main className="App">
       <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />}/>
@@ -14,7 +14,7 @@ function App() {
         <Route path='ranking' element={<Ranking />} />
       </Routes>
       </BrowserRouter>
-    </div>
+    </main>
   );
 }
 

@@ -65,7 +65,7 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
   }, [winner, incorrect])
 
   return (
-    <div className='relative'>
+    <main className='relative'>
       {(winner || incorrect) &&
         showResult ? <>{ incorrect ? <div className='result-container incorrect'><h1>incorrecto. Respuesta correcta : {qa[correct]}</h1></div> : <div className='result-container correct'><h1>correct</h1></div>}</> : <></>
       }
@@ -106,7 +106,7 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
           <button disabled={timeUp} type='submit'>send</button>
         </form>
       }
-    </div>
+    </main>
   );
 };
 

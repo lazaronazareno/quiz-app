@@ -24,7 +24,7 @@ const Game = () => {
   console.log(countIndex)
 
   return (
-    <div className='game-container'>
+    <main className='game-container'>
       {questionsList.map((q, index) => (
         <div key={index}>
           <QuestionForm
@@ -48,7 +48,7 @@ const Game = () => {
       <div>
         {countIndex > 10 && <ScoreForm countWinner={countWinner} /> }
       </div>
-    </div>
+    </main>
   );
 };
 
