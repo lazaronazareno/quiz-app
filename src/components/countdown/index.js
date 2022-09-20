@@ -1,14 +1,35 @@
-import React from 'react';
-import CountdownTimer from './countdownTimer';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
 
+const Countdown = ({setTimeUp, seconds, setSeconds}) => {
+  const [timeLeft, setTimeLeft] = useState(false)
 
-export default function Countdown() {
-  const THIRTY_SEGS_IN_MS = 30 * 1000;
-  const NOW_IN_MS = new Date().getTime();
+  useEffect(() => {
+    const time = setInterval(function() {
+        setSeconds(seconds - 1);
+    }, 500)
+    if(seconds <= 0){
+      setTimeLeft(true)
+      setTimeUp(true)
+    }
 
-  const dateTimeAfterThirtySegs = NOW_IN_MS + THIRTY_SEGS_IN_MS;
+    return () => { 
+       clearInterval(time)
+       setTimeLeft(false)
+       setTimeUp(false)
+    }
+   }, [seconds]);
+
   return (
-    <CountdownTimer targetDate={dateTimeAfterThirtySegs} />
+    <div className='relative'>
+      {timeLeft ? 
+        <></>  :
+        <div className="show-counter">
+          <span>{seconds}</span>
+        </div>
+      }
+    </div>
   );
 };
+
+export default Countdown;

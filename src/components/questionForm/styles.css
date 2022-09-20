@@ -1,20 +1,33 @@
+.relative {
+  position: relative;
+}
+
 .form-container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #e2ded3;
+}
+
+.form-container h1 {
+  margin: 0;
+  padding: 3vh;
+  margin: 2vh;
+  margin-top: 5vh;
 }
 
 .form-container label {
   display: inline-block;
-  background-color: #ddd;
+  background-color: #857671;
+  color: #212121;
   padding: 1vh 2vh;
   font-family: sans-serif, Arial;
   font-size: 3vh;
   text-transform: capitalize;
-  border: 2px solid #444;
-  border-radius: 4px;
+  border: 2px solid #4e413b;
+  border-radius: 5px;
   width: 50vh;
   height: 10vh;
   margin: 1vh;
@@ -24,16 +37,17 @@
 }
 
 .form-container label:hover {
-background-color: #dfd;
+  background-color: #ff6d24;
 }
 
 .form-container input[type="radio"]:focus + label {
-  border: 2px dashed #444;
+  border: 2px solid #444;
 }
 
 .form-container input[type="radio"]:checked + label {
-  background-color: #bfb;
-  border-color: #4c4;
+  background-color: #4e413b;
+  border-color: #ff6d24;
+  color: #e2ded3;
 }
 
 .form-container input[type="radio"] {
@@ -44,12 +58,18 @@ background-color: #dfd;
 
 .result-container {
   position: absolute;
-  top: 5vh;
-  right: 5vh;
-  width: 30vh;
-  height: 6vh;
+  top: 85vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vh;
+  height: 7vh;
   font-size: 1vh;
-  background-color: grey;
+  border-radius: 5px;
+  z-index: 100;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
@@ -59,15 +79,44 @@ background-color: #dfd;
   animation-fill-mode: both;
 }
 
+.incorrect {
+  background-color: #ff2424;
+  color: #e2ded3;
+}
+
+.correct {
+  background-color: #24ff83;
+  color: #212121;
+}
+
 .form--submit{
   display: none;
+}
+
+.form-container button {
+  width: 70vw;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh;
+  margin-top: auto;
+  margin-bottom: 3vh;
+  background-color: #ff6d24;
+  color: #e2ded3;
+  border: none;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-size: 2.5vh;
+  font-weight: 600;
+  border-radius: 5px;
 }
 
 @-webkit-keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
-  }
+}
   @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
-  } 
+} 

@@ -15,11 +15,13 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
       console.log('correct')
       winnerCount(count + secondsLeft)
       setSecondsLeft(30)
+      setCountIndex(countIndex + 1)
     } else {
       setIncorrect(true)
       console.log('incorrect')
       winnerCount(count)
       setSecondsLeft(30)
+      setCountIndex(countIndex + 1)
     }
   }
 
@@ -28,26 +30,28 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
   }
 
   useEffect((e) => {
+    setSelectOption(null)
     console.log('countIndex', countIndex)
-    if(timeUp && index === 0 && !selectOption) {
+    if(timeUp && index === 0) {
       setIncorrect(true)
       console.log('incorrect')
       console.log('index',index)
-      setSecondsLeft(5)
+      setSecondsLeft(30)
       setCountIndex(countIndex + 1)
       console.log(countIndex)
     }
-    if(timeUp && countIndex === index && !selectOption) {
+    if(timeUp && countIndex === index) {
       setIncorrect(true)
       console.log('incorrect')
       console.log('index',index)
-      setSecondsLeft(5)
+      setSecondsLeft(30)
       setCountIndex(countIndex + 1)
       console.log(countIndex)
     }
     return () => { 
       setTimeUp(false);
       setCountIndex(countIndex + 1)
+      setSelectOption(null)
    }
    }, [timeUp]);
 
@@ -61,12 +65,12 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
   }, [winner, incorrect])
 
   return (
-    <>
+    <div className='relative'>
       {(winner || incorrect) &&
-        showResult ? <div className='result-container'>{ incorrect ? <h1>incorrect!</h1> : <h1>correct!</h1>}</div> : <></>
+        showResult ? <>{ incorrect ? <div className='result-container incorrect'><h1>incorrecto. Respuesta correcta : {qa[correct]}</h1></div> : <div className='result-container correct'><h1>correct</h1></div>}</> : <></>
       }
       {((!winner && !incorrect)) &&
-        <form onSubmit={OnSubmit} className={selectOption && (winner || incorrect) ? `form-container form--submit` : 'form-container'}>
+        <form onSubmit={OnSubmit} className={(winner || incorrect) ? `form-container form--submit` : 'form-container'}>
           <h1>{qa['question']}</h1>
 
           <input 
@@ -99,10 +103,10 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
           <label className={`input-container ${selectOption === qa['3'] ? 'selected' : ''}`} htmlFor={`3-${index}`}>{qa['3']}
           </label>
 
-          <button type='submit'>send</button>
+          <button disabled={timeUp} type='submit'>send</button>
         </form>
       }
-    </>
+    </div>
   );
 };
 

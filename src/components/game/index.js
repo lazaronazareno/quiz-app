@@ -2,14 +2,16 @@ import React, { useEffect, useState } from 'react';
 import QuestionForm from '../questionForm';
 import { questions } from '../questions';
 import './styles.css'
-import CountdownA from '../countdown/countdown';
+import Countdown from '../countdown';
 import ScoreForm from '../score-form';
+import arrow  from '../../utils/icon/arrow.png'
+import { Link } from 'react-router-dom';
 
 const Game = () => {
   const [questionsList, setQuestionsList] = useState(questions)
   const [countWinner, setCountWinner] = useState(0)
   const [timeUp, setTimeUp] = useState(false)
-  const [seconds, setSeconds] = useState(5)
+  const [seconds, setSeconds] = useState(30)
   const[countIndex, setCountIndex] = useState(0)
 
   useEffect(() => {
@@ -19,6 +21,7 @@ const Game = () => {
     let newList = shuffled.slice(0,10)
     setQuestionsList(newList)
   },[])
+  console.log(countIndex)
 
   return (
     <div className='game-container'>
@@ -36,11 +39,14 @@ const Game = () => {
             countIndex={countIndex}
             setCountIndex={setCountIndex}
             />
-            {countIndex < 10 && <CountdownA setTimeUp={setTimeUp} seconds={seconds} setSeconds={setSeconds}/> }
+            {countIndex <= 10 && <Countdown setTimeUp={setTimeUp} seconds={seconds} setSeconds={setSeconds}/> }
+            <Link className='game-back__button' to='/'>
+              <img src={arrow} alt="Arrow icons created by Kirill Kazachek - Flaticon" />
+            </Link>
         </div>
       ))}
       <div>
-        {countIndex >= 10 && <ScoreForm countWinner={countWinner} /> }
+        {countIndex > 10 && <ScoreForm countWinner={countWinner} /> }
       </div>
     </div>
   );

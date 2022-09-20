@@ -1,0 +1,60 @@
+.score-form__container {
+  color: #e2ded3;
+  padding: 3vh;
+  margin: 2vh;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.score-form__title {
+  border-bottom: 2px solid #ff6d24;
+}
+
+.score-form__subtitle {
+  background-color: #757575;
+  border-radius: 5px;
+  padding: 2vh;
+}
+
+.score-form__form {
+  background-color: #4e413b;
+  padding: 5vh;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.score-form__form div {
+  height: 6vh;
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 2vh;
+  font-size: 4vh;
+}
+
+.score-form__form div input {
+  height: 4vh;
+  border-radius: 5px;
+  border: none;
+}
+
+.score-form__form button, .score-form__form a {
+  text-decoration: none;
+  color: #212121;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60vw;
+  height: 5vh;
+  margin: 2vh 6vh;
+  font-weight: 600;
+  background-color: #ff6d24;
+  border-radius: 5px;
+  cursor: pointer;
+}

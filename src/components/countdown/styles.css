@@ -1,3 +1,7 @@
+.relative {
+  position: relative;
+}
+
 .expired-notice {
   text-align: center;
   padding: 2rem;
@@ -18,37 +22,29 @@
 }
 
 .show-counter {
-  padding: 0.5rem;
   position: absolute;
-  top: 5vh;
-  left: 5vh;
-  font-size: 6vh;
-  border-radius: 50%;
-  border: 1px solid red;
-  background-color: grey;
-  width: 8vh;
-  height: 7vh;
+  bottom: 89vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 0.5rem;
+  width: 10vh;
+  height: 4vh;
+  font-size: 4vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e2ded3;
+  border-radius: 5px;
 }
 
 .show-counter .countdown-link {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   font-weight: 700;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  padding: 0.5rem;
-  text-decoration: none;
   color: #000;
 }
 
 .show-counter .countdown {
   line-height: 1.25rem;
   padding: 0 0.75rem 0 0.75rem;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
 }
 
 .show-counter .countdown.danger {
