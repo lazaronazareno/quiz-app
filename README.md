@@ -20,7 +20,7 @@ Requisitos:
 
 ##Screenshots
 ![Alt Text](https://i.ibb.co/Qd5pnv9/Screenshot-129.png)
-![Alt Text](https://i.ibb.co/Qd5pnv9/Screenshot-130.png)
-![Alt Text](https://i.ibb.co/Qd5pnv9/Screenshot-131.png)
-![Alt Text](https://i.ibb.co/Qd5pnv9/Screenshot-132.png)
-![Alt Text](https://i.ibb.co/Qd5pnv9/Screenshot-133.png)
+![Alt Text](https://i.ibb.co/kxKc92P/Screenshot-130.png)
+![Alt Text](https://i.ibb.co/dJF7Ty3/Screenshot-131.png)
+![Alt Text](https://i.ibb.co/QPyFMDx/Screenshot-132.png)
+![Alt Text](https://i.ibb.co/6YZNdrs/Screenshot-133.png)
