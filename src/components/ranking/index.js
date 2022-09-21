@@ -5,14 +5,14 @@ import './styles.css'
 
 const Ranking = () => {
   const [data, setData] = useState();
-  if(data){
-    data.sort((a,b) => b.score - a.score)
-  }
 
   useEffect(() => {
     const ranking = JSON.parse(localStorage.getItem('scoreList'))
-    setData(ranking)
+    ranking.sort((a,b) => b.score - a.score)
+    const newList = ranking.slice(0,10)
+    setData(newList)
   },[])
+
   return (
     <div className='ranking-container'>
       <div className='ranking-title__container'>
@@ -21,7 +21,6 @@ const Ranking = () => {
           <img src={arrow} alt="Arrow icons created by Kirill Kazachek - Flaticon" />
         </Link>
       </div>
-      {data && (
         <table className="table">
         <thead className='table-head'>
           <tr className='table-titles'>
@@ -30,6 +29,7 @@ const Ranking = () => {
             <th>Puntuacion</th>
           </tr>
         </thead>
+        {data && (
         <tbody className='table-item'>
           {data.map(data => (
             <tr className='table-item-titles' key={data.date}>
@@ -39,11 +39,11 @@ const Ranking = () => {
             </tr>
           ))}
           </tbody>
+        )}
+        {(!data || data.length === 0) && (
+          <span>No hay Puntuaciones</span>
+        )}
         </table>
-      )}
-      {(!data || data.length === 0) && (
-        <span>No hay Puntuaciones</span>
-      )}
     </div>
   )
 }

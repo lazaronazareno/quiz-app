@@ -16,6 +16,7 @@
 
 .ranking-title__container a img {
   height: 6vh;
+  width: 6vh;
   rotate: 180deg;
 }
 
@@ -48,6 +49,26 @@
   padding: 0 2vh;
 }
 
+.table-item-titles:hover{
+  background-color: #857671 ;
+  color: #212121;
+}
+
+.table-item-titles td {
+  width: 30vw;
+  overflow-wrap: anywhere;
+}
+
+.table-item-titles td:nth-child(1) {
+  display: flex;
+}
+
+.table-item-titles td:nth-child(3) {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
 .table-item {
   font-size: 2.5vh;
   text-transform: capitalize;
@@ -59,7 +80,3 @@
   font-size: 5vh;
 }
 
-.table-item-titles:hover{
-  background-color: #857671 ;
-  color: #212121;
-}

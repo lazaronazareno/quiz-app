@@ -12,5 +12,6 @@
 
 .game-back__button img {
   height: 6vh;
+  width: 6vh;
   rotate: 180deg;
 }

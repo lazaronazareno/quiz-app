@@ -15,6 +15,7 @@
 
 .home-container img {
   width: 40vw;
+  height: 40vh;
 }
 
 .home-container a {
@@ -46,6 +47,14 @@
 
 @media (min-width:700px) {
   .home-container img {
-    width: 25vw;
+    width: 20vw;
+    height: 40vh;
+  }
+}
+
+@media (max-width:400px) {
+  .home-container a {
+    height: auto;
+    width: 70vw;
   }
 }

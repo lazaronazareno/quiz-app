@@ -28,8 +28,6 @@ const QuestionForm = ({qa, count, winnerCount, secondsLeft, setSecondsLeft, time
 
   useEffect(() => {
     setSelectOption(null)
-    console.log(countIndex)
-    console.log('winner', winner,'incorrect', incorrect, index )
     if(timeUp && index === 0) {
       setIncorrect(true)
       setWinner(false)

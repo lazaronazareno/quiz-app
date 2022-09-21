@@ -12,7 +12,7 @@ const Game = () => {
   const [countWinner, setCountWinner] = useState(0)
   const [timeUp, setTimeUp] = useState(false)
   const [seconds, setSeconds] = useState(30)
-  const[countIndex, setCountIndex] = useState(0)
+  const [countIndex, setCountIndex] = useState(0)
 
   useEffect(() => {
     let shuffled = questionsList.map(value => ({ value, sort: Math.random() }))
@@ -24,7 +24,7 @@ const Game = () => {
 
   return (
     <main className='game-container'>
-      {countIndex <= 10 && 
+      {questionsList.length <= 10 && countIndex < 10 && 
         <>
           {questionsList.map((q, index) => (
             <div key={index}>
@@ -49,7 +49,7 @@ const Game = () => {
         </>
        }
       <div>
-        {countIndex > 10 && <ScoreForm countWinner={countWinner} /> }
+        {countIndex >= 10 && <ScoreForm countWinner={countWinner} /> }
         <Link className='game-back__button' to='/'>
           <img src={arrow} alt="Arrow icons created by Kirill Kazachek - Flaticon" />
         </Link>

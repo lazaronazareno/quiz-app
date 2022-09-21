@@ -7,7 +7,7 @@ const Countdown = ({setTimeUp, seconds, setSeconds}) => {
   useEffect(() => {
     const time = setInterval(function() {
         setSeconds(seconds - 1);
-    }, 500)
+    }, 1000)
     if(seconds <= 0){
       setTimeLeft(true)
       setTimeUp(true)

@@ -32,7 +32,6 @@ const ScoreForm = ({countWinner}) => {
     if(!scores) {
       localStorage.setItem('scoreList', JSON.stringify(scoreList)) 
     } else if(scoreList && scoreList.length > 0) {
-      console.log('useEffect', scoreList)
       localStorage.setItem('scoreList', JSON.stringify(scoreList)) 
     }
     setScoreList(scores)
